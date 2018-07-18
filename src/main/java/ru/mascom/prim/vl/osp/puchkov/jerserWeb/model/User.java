@@ -1,6 +1,7 @@
 package ru.mascom.prim.vl.osp.puchkov.jerserWeb.model;
 
 public class User {
+    private Integer id;
     private String username;
     private Integer passwdHashcode;
 
@@ -8,14 +9,24 @@ public class User {
     public User() {
     }
 
-    public User(String username, Integer passwdHashcode) {
+    public User(Integer id, String username, Integer passwdHashcode) {
+        this.id = id;
         this.username = username;
         this.passwdHashcode = passwdHashcode;
     }
 
-    public User(String username, String password) {
+    public User(Integer id, String username, String password) {
+        this.id = id;
         this.username = username;
         this.passwdHashcode = password.hashCode();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {

@@ -6,11 +6,14 @@ import java.util.*;
 
 public class UserDAONoDBImpl implements UserDAO {
     private Map<Integer, User> users;
-    {initUsers();}
+
+    public UserDAONoDBImpl() {
+        initUsers();
+    }
 
     private void initUsers() {
         users = new HashMap<Integer, User>();
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 15; i++) {
             users.put(Integer.valueOf(i), new User(Integer.valueOf(i), "user"+i, "password"+i));
         }
     }

@@ -1,4 +1,4 @@
-package ru.mascom.prim.vl.osp.puchkov.jerserWeb.model;
+package ru.mascom.prim.vl.osp.puchkov.jerseyWeb.model;
 
 public class User {
     private Integer id;

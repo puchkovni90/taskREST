@@ -4,6 +4,7 @@ import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.DAO.UserDAO;
 import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.DAO.UserDAONoDBImpl;
 import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.model.User;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -19,7 +20,8 @@ public class UserService {
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
     public List<User> getUsers() {
         return userDAO.getUsers();
     }

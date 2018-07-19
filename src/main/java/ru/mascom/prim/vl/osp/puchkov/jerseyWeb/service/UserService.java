@@ -19,7 +19,7 @@ public class UserService {
     public UserService() {
         //TODO: change to DB DAO if added
         userDAO = new UserDAONoDBImpl();
-        LOGGER.warn("Connecting service to no-database dummy.");
+        LOGGER.warn("Connecting service to no-database UserDAO dummy.");
     }
 
     @GET
@@ -30,7 +30,7 @@ public class UserService {
             LOGGER.info("Got empty or null list of users");
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        LOGGER.debug("Got list of users, count of elements: " + users.size());
+        LOGGER.debug("Statuscode:OK GET list of users, count of elements: " + users.size());
 
         GenericEntity<List<User>> result = new GenericEntity<List<User>>(users){};
 
@@ -43,10 +43,10 @@ public class UserService {
     public Response getUser(@PathParam("id") Integer id) {
         User result = userDAO.getUser(id);
         if (result == null) {
-            LOGGER.info("user by id not found. id: " + id);
+            LOGGER.info("Statuscode:NotFound GET user by id: " + id);
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        LOGGER.debug("got user by id: " + id);
+        LOGGER.debug("Statuscode:OK GET user by id " + id);
         return Response.ok(userDAO.getUser(id)).build();
     }
 
@@ -55,11 +55,11 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response addUser(User user) {
         if (!userDAO.addUser(user)) {
-            LOGGER.warn("can't add a user: " + user.toString());
+            LOGGER.info("Statuscode:NotModified POST add user: " + user.toString());
             return Response.status(Response.Status.NOT_MODIFIED).build();
         }
 
-        LOGGER.debug("added new user: " + user.toString());
+        LOGGER.debug("Statuscode:OK POST add user: " + user.toString());
         return Response.ok(user).build();
     }
 
@@ -68,10 +68,10 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateUser(User user) {
         if (!userDAO.updateUser(user)) {
-            LOGGER.warn("can't update a user: " + user);
+            LOGGER.info("Statuscode:NotModified PUT update user: " + user.toString());
             return Response.status(Response.Status.NOT_MODIFIED).build();
         }
-        LOGGER.debug("updated a user: " + user.toString());
+        LOGGER.debug("Statuscode:OK PUT update user: " + user.toString());
         return Response.ok(user).build();
     }
 
@@ -79,10 +79,10 @@ public class UserService {
     @Path("{id}") //according to {@link https://habr.com/post/38730/}
     public Response deleteUser(@PathParam("id") Integer id) {
         if (!userDAO.deleteUser(id)) {
-            LOGGER.warn("can't delete a user by id: " + id);
+            LOGGER.info("Statuscode:NotModified DELETE user by id: " + id);
             return Response.status(Response.Status.NOT_MODIFIED).build();
         }
-        LOGGER.debug("user deleted by id: " + id);
+        LOGGER.debug("Statuscode:OK DELETE user by id: " + id);
         return Response.ok().build();
     }
 }

@@ -1,0 +1,19 @@
+    Необходимо сделать шаблон сервиса, который будет внутри себя иметь классы:
+    1.       Авторизация
+    2.       Проверка его на check health
+    3.       Логирование ошибок
+    4.       Выставленный REST наружу.
+
+
+#   предположения о выполнении
+#   1 - не выполнено
+#   2 - интерпретировано как выдача статус-кодов (скорее всего ошибочно)
+#   3 - логирование через log4j (впервые пользуюсь логированием)
+#   4 - RESTful interface с использованием jersey (ранее даже не был знаком с понятием)
+#       -GET /jerseyWeb/users : get user list
+#       -GET /jerseyWeb/users/{id} : get user by id
+#       -POST /jerseyWeb/users JSON{"id":{id},"username": {username}, "passwdHashcode": {passwdHashcode}}: user add
+#       -PUT /jerseyWeb/users JSON{"id":{id},"username": {username}, "passwdHashcode": {passwdHashcode}}: user update
+#       -DELETE /jerseyWeb/users/{id} : delete user by id
+#   интерфейс не сохраняет состояние модели при добавлении или модификации, предположительно по причине отсутствия подключения к БД
+#   не написан клиент RESTful интерфейса

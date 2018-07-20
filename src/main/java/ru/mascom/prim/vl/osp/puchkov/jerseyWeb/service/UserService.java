@@ -13,10 +13,11 @@ import java.util.List;
 
 @Path("/users")
 public class UserService {
-    private static final Logger LOGGER = Logger.getLogger(UserService.class);
+    private Logger LOGGER;
 
     private UserDAO userDAO;
     public UserService() {
+        LOGGER = Logger.getLogger(UserService.class);
         //TODO: change to DB DAO if added
         userDAO = new UserDAONoDBImpl();
         LOGGER.warn("Connecting service to no-database UserDAO dummy.");

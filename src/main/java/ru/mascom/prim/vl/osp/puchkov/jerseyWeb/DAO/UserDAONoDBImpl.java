@@ -9,10 +9,11 @@ import java.util.*;
  * {@link ru.mascom.prim.vl.osp.puchkov.jerseyWeb.DAO.UserDAO} dummy
  */
 public class UserDAONoDBImpl implements UserDAO {
-    private static final Logger LOGGER = Logger.getLogger(UserDAONoDBImpl.class);
+    private Logger LOGGER;
     private Map<Integer, User> users;
 
     public UserDAONoDBImpl() {
+        LOGGER = Logger.getLogger(UserDAONoDBImpl.class);
         LOGGER.debug("Creating no-database UserDAO dummy");
         initUsers();
     }

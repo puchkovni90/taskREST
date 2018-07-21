@@ -1,5 +1,7 @@
+How to run.
 1. Make sure u are using PostgreSQL, SQL file has postgreSQL-only commands.
 2. Execute "dbCreationScripts/PostgreSQL/{operating_system}" script, it will create new DB for the project.
 If u are using Ubuntu or other linux previous execute chmod a+x dbCreationScripts/PostgreSQL/ubuntu.bash
 3. Run tomcat at localhost:8080 and log in. If needed change manager url in pom.xml (default is <url>http://localhost:8080/manager/text</url>).
-4. Execute "mvn tomcat7:deploy"
+4. Execute "mvn tomcat7:deploy".
+5. Check localhost:8080\jerseyWeb\users

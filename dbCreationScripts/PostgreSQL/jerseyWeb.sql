@@ -1,5 +1,5 @@
 -- Database: "jerseyWeb"
-DROP DATABASE "jerseyWeb";
+-- DROP DATABASE "jerseyWeb";
 CREATE DATABASE "jerseyWeb"
   WITH OWNER = postgres
        ENCODING = 'WIN1251'

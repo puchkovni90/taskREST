@@ -5,8 +5,9 @@
 <hibernate-mapping>
 
     <class name="ru.mascom.prim.vl.osp.puchkov.jerseyWeb.model.User" table="users" schema="public" catalog="jerseyWeb">
-        <id name="id">
-            <column name="id" sql-type="serial" not-null="true"/>
+        <id name="id" unsaved-value="null">
+            <column name="id" sql-type="serial" not-null="true" />
+            <generator class="identity"/>
         </id>
         <property name="username">
             <column name="username" sql-type="varchar" length="100"/>

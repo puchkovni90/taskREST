@@ -3,6 +3,7 @@ package ru.mascom.prim.vl.osp.puchkov.jerseyWeb.service;
 import org.apache.log4j.Logger;
 import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.DAO.UserDAO;
 import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.DAO.UserDAONoDBImpl;
+import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.DAO.UserDAOPostgreImpl;
 import ru.mascom.prim.vl.osp.puchkov.jerseyWeb.model.User;
 
 import javax.ws.rs.*;
@@ -19,8 +20,8 @@ public class UserService {
     public UserService() {
         LOGGER = Logger.getLogger(UserService.class);
         //TODO: change to DB DAO if added
-        userDAO = new UserDAONoDBImpl();
-        LOGGER.warn("Connecting service to no-database UserDAO dummy.");
+        userDAO = new UserDAOPostgreImpl();
+        LOGGER.warn("Connecting service to UserDAO.");
     }
 
     @GET

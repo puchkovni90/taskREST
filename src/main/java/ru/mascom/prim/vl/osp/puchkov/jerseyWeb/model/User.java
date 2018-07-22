@@ -1,11 +1,5 @@
 package ru.mascom.prim.vl.osp.puchkov.jerseyWeb.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "user")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
     private Integer id;
     private String username;
